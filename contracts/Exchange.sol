@@ -4,7 +4,7 @@ import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import 'https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol';
 import './ERC20Token.sol';
 
-contract Exchange {
+contract Exchange is IERC20 {
     using SafeMath for uint;
 
     address public feeAccount;
