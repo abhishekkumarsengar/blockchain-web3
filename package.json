@@ -19,7 +19,8 @@
     "truffle": "5.1.45",
     "truffle-flattener": "1.5.0",
     "truffle-hdwallet-provider-privkey": "0.3.0",
-    "web3": "1.2.6"
+    "web3": "1.2.6",
+    "hardhat": "^2.8.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
