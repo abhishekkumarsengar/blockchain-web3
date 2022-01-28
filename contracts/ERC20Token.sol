@@ -1,5 +1,5 @@
-pragma solidity >=0.4.22 <0.8.0;
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+pragma solidity 0.8.0;
+import "openzeppelin-solidity/contracts/utils/math/SafeMath.sol";
 
 contract ERC20Token {
     using SafeMath for uint;

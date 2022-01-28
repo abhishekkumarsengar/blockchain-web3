@@ -1,0 +1,225 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/nineleaps/Desktop/blockchain/blockchain-web3/contracts/ERC20Token.sol": {
+      "lastModificationDate": 1643367800017,
+      "contentHash": "c9bc0aa77241e5bf7fd209d71bf71c77",
+      "sourceName": "contracts/ERC20Token.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/utils/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "0.8.0"
+      ],
+      "artifacts": [
+        "ERC20Token"
+      ]
+    },
+    "/Users/nineleaps/Desktop/blockchain/blockchain-web3/node_modules/openzeppelin-solidity/contracts/utils/math/SafeMath.sol": {
+      "lastModificationDate": 1643365046240,
+      "contentHash": "5365090efc586b728719e562ebfed0d6",
+      "sourceName": "openzeppelin-solidity/contracts/utils/math/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "/Users/nineleaps/Desktop/blockchain/blockchain-web3/contracts/Exchange.sol": {
+      "lastModificationDate": 1643368001901,
+      "contentHash": "cacebd8367da033c4a9ad3851a69252a",
+      "sourceName": "contracts/Exchange.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/utils/math/SafeMath.sol",
+        "./ERC20Token.sol"
+      ],
+      "versionPragmas": [
+        "0.8.0"
+      ],
+      "artifacts": [
+        "Exchange"
+      ]
+    },
+    "/Users/nineleaps/Desktop/blockchain/blockchain-web3/contracts/NFT.sol": {
+      "lastModificationDate": 1643367816940,
+      "contentHash": "06623ee2a7f63ee81d203a8c28797337",
+      "sourceName": "contracts/NFT.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC721Token.sol",
+        "openzeppelin-solidity/contracts/utils/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "0.8.0"
+      ],
+      "artifacts": [
+        "NFT"
+      ]
+    },
+    "/Users/nineleaps/Desktop/blockchain/blockchain-web3/contracts/ERC721Token.sol": {
+      "lastModificationDate": 1643367808108,
+      "contentHash": "434d5715ee58b6e8558ade43083524a0",
+      "sourceName": "contracts/ERC721Token.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/utils/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "0.8.0"
+      ],
+      "artifacts": [
+        "ERC721Token"
+      ]
+    },
+    "/Users/nineleaps/Desktop/blockchain/blockchain-web3/contracts/Migrations.sol": {
+      "lastModificationDate": 1643367813945,
+      "contentHash": "1c9149f6cfec25e31aeb4aba3caa5e37",
+      "sourceName": "contracts/Migrations.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.0"
+      ],
+      "artifacts": [
+        "Migrations"
+      ]
+    }
+  }
+}

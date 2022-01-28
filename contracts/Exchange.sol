@@ -1,10 +1,9 @@
-pragma solidity >=0.4.22 <0.8.0;
+pragma solidity 0.8.0;
 
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
-import 'https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol';
+import "openzeppelin-solidity/contracts/utils/math/SafeMath.sol";
 import './ERC20Token.sol';
 
-contract Exchange is IERC20 {
+contract Exchange {
     using SafeMath for uint;
 
     address public feeAccount;
@@ -62,7 +61,7 @@ contract Exchange is IERC20 {
         feePercent = _feePercent;
     }
 
-    function() external {
+    fallback() external {
         revert();
     }
 
@@ -74,13 +73,13 @@ contract Exchange is IERC20 {
     function withdrawEther(uint256 _amount) payable public {
         require(tokensMapping[ETHER][msg.sender] >= _amount);
         tokensMapping[ETHER][msg.sender] = tokensMapping[ETHER][msg.sender].sub(_amount);
-        msg.sender.transfer(_amount);
+        payable(msg.sender).transfer(_amount);
         emit Withdraw(ETHER, msg.sender, _amount, tokensMapping[ETHER][msg.sender]);
     }
 
     function depositToken(address _token, uint256 _amount) public {
         require(_token != ETHER);
-        require(Tokens(_token).transferFrom(msg.sender, address(this), _amount));
+        require(ERC20Token(_token).transferFrom(msg.sender, address(this), _amount));
         tokensMapping[_token][msg.sender] = tokensMapping[_token][msg.sender].add(_amount);
         emit Deposit(_token, msg.sender, _amount, tokensMapping[_token][msg.sender]);
     }
@@ -89,7 +88,7 @@ contract Exchange is IERC20 {
         require(_token != ETHER);
         require(tokensMapping[_token][msg.sender] >= _amount);
         tokensMapping[_token][msg.sender] = tokensMapping[_token][msg.sender].sub(_amount);
-        require(Tokens(_token).transfer(msg.sender, _amount));
+        require(ERC20Token(_token).transfer(msg.sender, _amount));
         emit Withdraw(_token, msg.sender, _amount, tokensMapping[_token][msg.sender]);
     }
 
@@ -99,8 +98,8 @@ contract Exchange is IERC20 {
 
     function makeOrder(address _tokenGet, uint256 _amountGet, address _tokenGive, uint256 _amountGive) public {
         orderCount = orderCount.add(1);
-        orders[orderCount] = _Order(orderCount, msg.sender, _tokenGet, _amountGet, _tokenGive, _amountGive, now);
-        emit Order(orderCount, msg.sender, _tokenGet, _amountGet, _tokenGive, _amountGive, now);
+        orders[orderCount] = _Order(orderCount, msg.sender, _tokenGet, _amountGet, _tokenGive, _amountGive, block.timestamp);
+        emit Order(orderCount, msg.sender, _tokenGet, _amountGet, _tokenGive, _amountGive, block.timestamp);
     }
 
     function cancelOrder(uint256 _id) public {
@@ -108,7 +107,7 @@ contract Exchange is IERC20 {
         require(address(_order.user) == msg.sender);
         require(_order.id == _id);
         orderCancelled[_id] = true;
-        emit Cancel(_order.id, msg.sender, _order.tokenGet, _order.amountGet, _order.tokenGive, _order.amountGive, now);
+        emit Cancel(_order.id, msg.sender, _order.tokenGet, _order.amountGet, _order.tokenGive, _order.amountGive, block.timestamp);
     }
 
     function fillOrder(uint256 _id) public {
@@ -130,7 +129,7 @@ contract Exchange is IERC20 {
     tokensMapping[_tokenGive][_user] = tokensMapping[_tokenGive][_user].sub(_amountGive);
     tokensMapping[_tokenGive][msg.sender] = tokensMapping[_tokenGive][msg.sender].add(_amountGive);
 
-    emit Trade(_orderId, _user, _tokenGet, _amountGet, _tokenGive, _amountGive, msg.sender, now);
+    emit Trade(_orderId, _user, _tokenGet, _amountGet, _tokenGive, _amountGive, msg.sender, block.timestamp);
   }
 }
 
